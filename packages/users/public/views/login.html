@@ -1,9 +1,13 @@
-<div data-ng-controller="LoginCtrl">
-
+<div class="about">
+    <div class="container">
+        <section class="title-section">
+            <h1 class="title-header">Login</h1>
+        </section>
+    </div>
+</div>
+<div class="container" data-ng-controller="LoginCtrl">
     <div class="alert alert-danger animated fadeIn" ng-show="loginerror">{{loginerror}}</div>
-
-    <h2>Login</h2>
-
+    <!--<h2>Login</h2>-->
     <form id="login_form" ng-submit="login()">
         <div class="input-wrapper">
             <input required id="email_block" type="email" name="email" placeholder="Email Address" ng-model="user.email">
@@ -27,8 +31,8 @@
             <p>Don't have an account?</p>
             <a ui-sref='auth.register' >Sign up</a>
         </div>
-        <div class="woman_ninja_bottom">
+        <!--<div class="woman_ninja_bottom">
             <img src="/theme/assets/img/woman_ninja.png" alt="#">
-        </div>
+        </div>-->
     </form>
 </div>

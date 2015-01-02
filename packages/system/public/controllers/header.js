@@ -4,7 +4,6 @@ angular.module('mean.system').controller('HeaderController', ['$scope', '$rootSc
   function($scope, $rootScope, Global, Menus) {
     $scope.global = Global;
     $scope.menus = {};
-
     // Default hard coded menu items for main menu
     var defaultMainMenu = [];
 

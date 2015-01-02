@@ -24,8 +24,11 @@ Theme.register(function(app, auth, database) {
 //    menu: 'main'
 //  });
 
-  Theme.aggregateAsset('css', 'loginForms.css');
-  Theme.aggregateAsset('css', 'theme.css');
+    Theme.aggregateAsset('css', 'font-awesome.min.css');
+    Theme.aggregateAsset('css', 'style.css');
+    Theme.aggregateAsset('css', 'form.css');
+
+
 
   /**
     //Uncomment to use. Requires meanio@0.3.7 or above

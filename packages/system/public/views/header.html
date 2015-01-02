@@ -1,38 +1,37 @@
-<div class="page-header" data-ng-controller="HeaderController">
-  <div class="logo pull-left">
-    <a class="navbar-brand" ui-sref="home" mean-token="'site-title'">MEAN</a>
-  </div>
-
-  <div class="left pull-left">
-    <ul class="navbar-nav nav">
-      <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
-        <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="account">
-    <div class="text-edit">
-      <div class="pull-right" data-ng-show="global.authenticated" mean-token-editable></div>
-      <div class="pull-right" data-ng-show="global.authenticated" mean-translate></div>
+<div class="header" data-ng-controller="HeaderController">
+    <div class="container">
+        <div class="logo"><a ui-sref="home" mean-token="'site-title'"><img src="/theme/assets/img/tmpl/logo.png" alt="webOsmotic"></a></div>
+        <div class="menu">
+            <div class="text-edit">
+                <div class="pull-right" data-ng-show="global.authenticated" mean-token-editable></div>
+                <div class="pull-right" data-ng-show="global.authenticated" mean-translate></div>
+            </div>
+            <button type="button" class="navbar-toggle"  ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" title="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars" style="font-size: 25px;"></i>
+            </button>
+            <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+                <ul class="nav" id="nav" data-ng-hide="global.authenticated">
+                    <li><a ui-sref='auth.register' ng-click="navCollapsed = !navCollapsed">Join</a></li>
+                    <li class="divider-vertical"></li>
+                    <li><a ui-sref='auth.login' ng-click="navCollapsed = !navCollapsed">Log In</a>
+                    </li>
+                </ul>
+                <ul class="nav" id="nav" data-ng-show="global.authenticated">
+                    <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{current: $uiRoute}">
+                        <a mean-token="item.link" ui-sref='{{item.link}}' ng-click="$parent.navCollapsed = !$parent.navCollapsed">{{item.title}}</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" ng-click="navCollapsed = !navCollapsed">
+                            {{global.user.name}} <b class="caret"></b>
+                        </a>
+                        <ul class="nav dropdown-menu">
+                            <li><a href="/logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
     </div>
-    <ul class="navbar-nav nav" data-ng-hide="global.authenticated">
-      <li><a ui-sref='auth.register'>Join</a>
-      </li>
-      <li class="divider-vertical"></li>
-      <li><a ui-sref='auth.login'>Log In</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav nav" data-ng-show="global.authenticated">
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          {{global.user.name}} <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="/logout">Log Out</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
 </div>

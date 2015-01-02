@@ -18,6 +18,65 @@
 .account > div, .account > ul {
     text-align: left;
 }
+.navbar {
+    background-color: #e9e6ed !important;
+    border-color: #bdbbc1 !important;
+}
+.navbar .navbar-brand {
+    color: #8b8b8b !important;
+}
+.navbar .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #f8f8f8 !important;
+}
+.navbar .navbar-text {
+    color: #8b8b8b !important;
+}
+.navbar .navbar-nav > li > a {
+    color: #8b8b8b !important;
+}
+.navbar .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #f8f8f8 !important;
+}
+.navbar .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #f8f8f8 !important;
+    background-color: #bdbbc1 !important;
+}
+.navbar .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #f8f8f8 !important;
+    background-color: #bdbbc1 !important;
+}
+.navbar .navbar-toggle {
+    border-color: #bdbbc1 !important;
+}
+.navbar .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #bdbbc1 !important;
+}
+.navbar .navbar-toggle .icon-bar {
+    background-color: #8b8b8b !important;
+}
+.navbar .navbar-collapse,
+.navbar .navbar-form {
+    border-color: #8b8b8b !important;
+}
+.navbar- .navbar-link {
+    color: #8b8b8b !important;
+}
+.navbar-default .navbar-link:hover {
+    color: #f8f8f8!important ;
+}
+
+@media (max-width: 767px) {
+    .navbar .navbar-nav .open .dropdown-menu > li > a {
+        color: #8b8b8b !important;
+    }
+    .navbar .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #f8f8f8 !important;
+    }
+    .navbar .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #f8f8f8 !important;
+        background-color: #bdbbc1 !important;
+    }
+}
 .navbar .nav > li > a.brand {
     padding-left: 20px;
     margin-left: 0
