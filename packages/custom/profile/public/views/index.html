@@ -1,0 +1,122 @@
+<div class="about">
+    <div class="container">
+        <section class="title-section">
+            <h1 class="title-header">Edit Profile</h1>
+        </section>
+    </div>
+</div>
+<div class="container main-form" data-ng-controller="ProfileController" data-ng-init="findOne()">
+    <form  name="profileForm" class="form-horizontal" role="form" data-ng-submit="editProfile(profileForm.$valid)" novalidate>
+        <div class="alert alert-success" role="alert" ng-show="msg">{{msg}}</div>
+        <fieldset>
+            <!-- Form Name -->
+            <legend>Personal Details</legend>
+            <div class="form-group" ng-class="{ 'has-error' : submitted && profileForm.fullName.$invalid }">
+                <label mean-token="'create-fullName'" for="fullName" class="col-sm-2 control-label">Full Name</label>
+                <div class="col-sm-10">
+                    <input name="fullName" type="text" class="form-control" id="fullName"
+                           placeholder="Enter Full Name" data-ng-model="global.user.name" required/>
+                    <div ng-show="submitted && profileForm.fullName.$invalid" class="help-block">
+                        <p ng-show="profileForm.fullName.$error.required">Full Name is required</p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Gender</label>
+                <div class="col-sm-10">
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" id="male" checked value="Male" data-ng-model="global.gender"/>Male
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" id="female" value="Female" data-ng-model="global.gender"/>Female
+                    </label>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : submitted && profileForm.birthDate.$invalid }">
+                <label mean-token="'create-birthDate'" for="dob" class="col-sm-2 control-label">Birth Date</label>
+                <div class="col-sm-10">
+                    <!--<input type="text" class="form-control" id="dob"
+                           placeholder="Enter a Date of birth" data-ng-model="global.dob"/>-->
+                    <p class="input-group">
+                        <input name="birthDate" type="text" class="form-control" datepicker-popup="{{format}}"
+                               data-ng-model="global.dob" is-open="opened"  ng-required="true"
+                               close-text="Close" id="dob" required/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                    <div ng-show="submitted && profileForm.birthDate.$invalid" class="help-block">
+                        <p ng-show="profileForm.birthDate.$error.required">Birth Date is required</p>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <!-- Form Name -->
+            <legend>Address Details</legend>
+            <!-- Text input-->
+            <div class="form-group" ng-class="{ 'has-error' : submitted && profileForm.address.$invalid }">
+                <label mean-token="'create-address'" class="col-sm-2 control-label" for="address">Address</label>
+                <div class="col-sm-10">
+                    <input name="address" type="text" placeholder="Enter a Address" class="form-control"
+                           data-ng-model="global.address" id="address" required/>
+                    <div ng-show="submitted && profileForm.address.$invalid" class="help-block">
+                        <p ng-show="profileForm.address.$error.required">Address is required</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group" ng-class="{ 'has-error' : submitted && profileForm.city.$invalid }">
+                <label mean-token="'create-city'" class="col-sm-2 control-label" for="city">City</label>
+                <div class="col-sm-10">
+                    <input name="city" type="text" placeholder="City" class="form-control"
+                           data-ng-model="global.city" id="city" required/>
+                    <div ng-show="submitted && profileForm.city.$invalid" class="help-block">
+                        <p ng-show="profileForm.city.$error.required">City is required</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <span  ng-class="{ 'has-error' : submitted && profileForm.state.$invalid }">
+                    <label mean-token="'create-state'" class="col-sm-2 control-label" for="state">State</label>
+                    <div class="col-sm-4">
+                        <input name="state" type="text" placeholder="State" class="form-control"
+                               data-ng-model="global.state" id="state" required/>
+                        <div ng-show="submitted && profileForm.state.$invalid" class="help-block">
+                            <p ng-show="profileForm.state.$error.required">State is required</p>
+                        </div>
+                    </div>
+                </span>
+                <span  ng-class="{ 'has-error' : submitted && profileForm.postcode.$invalid }">
+                    <label mean-token="'create-postcode'" class="col-sm-2 control-label" for="postcode">Postcode</label>
+                    <div class="col-sm-4">
+                        <input name="postcode" type="text" placeholder="Post Code" class="form-control"
+                               data-ng-model="global.postal" id="postcode" required/>
+                        <div ng-show="submitted && profileForm.postcode.$invalid" class="help-block">
+                            <p ng-show="profileForm.postcode.$error.required">Postcode is required</p>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <!-- Text input-->
+            <div class="form-group" ng-class="{ 'has-error' : submitted && profileForm.country.$invalid }">
+                <label mean-token="'create-country'" class="col-sm-2 control-label" for="country">Country</label>
+                <div class="col-sm-10">
+                    <input name="country" type="text" placeholder="Country" class="form-control"
+                           data-ng-model="global.country" id="country" required/>
+                    <div ng-show="submitted && profileForm.country.$invalid" class="help-block">
+                        <p ng-show="profileForm.country.$error.required">Country is required</p>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="submit_button">Update</button>
+            </div>
+        </div>
+    </form>
+</div>
+

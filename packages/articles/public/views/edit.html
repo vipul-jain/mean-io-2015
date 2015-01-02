@@ -1,4 +1,11 @@
-<section data-ng-controller="ArticlesController" data-ng-init="findOne()">
+<div class="about">
+    <div class="container">
+        <section class="title-section">
+            <h1 class="title-header">Edit Article</h1>
+        </section>
+    </div>
+</div>
+<section class="container" data-ng-controller="ArticlesController" data-ng-init="findOne()">
   <form name="articleForm" class="form-horizontal col-md-6" role="form" data-ng-submit="update(articleForm.$valid)" novalidate>
     <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.title.$invalid }">
       <label mean-token="'edit-title'" for="title" class="col-md-2 control-label">Title</label>

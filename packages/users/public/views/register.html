@@ -1,12 +1,18 @@
-<div data-ng-controller="RegisterCtrl">
+<div class="about">
+    <div class="container">
+        <section class="title-section">
+            <h1 class="title-header">Sign Up</h1>
+        </section>
+    </div>
+</div>
+<div class="container" data-ng-controller="RegisterCtrl">
     <div ng-repeat="error in registerError">
         <div class="alert alert-danger animated fadeIn">{{error.msg}}</div>
     </div>
     <div class="alert alert-danger animated fadeIn" ng-show="usernameError">{{usernameError}}</div>
     <div class="alert alert-danger animated fadeIn" ng-show="emailError">{{emailError}}</div>
     <form id="register_form" ng-submit="register()">
-        <h2>Sign Up</h2>
-
+        <!--<h2>Sign Up</h2>-->
         <div class="input-wrapper">
             <input required id="name" type="text" name="name" placeholder="Full Name"
                    ng-model="user.name">
@@ -59,8 +65,8 @@
             <p>Already have an account?</p>
             <a ui-sref='auth.login'>Log in</a>
         </div>
-        <div class="woman_ninja_bottom">
+        <!--<div class="woman_ninja_bottom">
             <img src="/theme/assets/img/woman_ninja.png" alt="#">
-        </div>
-    </form>
+        </div>-->
+    </form><br>
 </div>

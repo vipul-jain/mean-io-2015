@@ -1,4 +1,11 @@
-<section data-ng-controller="ArticlesController" data-ng-init="findOne()">
+<div class="about">
+    <div class="container">
+        <section class="title-section">
+            <h1 class="title-header">Article</h1>
+        </section>
+    </div>
+</div>
+<section class="container" data-ng-controller="ArticlesController" data-ng-init="findOne()">
   <span>{{article.created | date:'medium'}}</span> /
   <span>{{article.user.name}}</span>
   <h2>{{article.title}}</h2>

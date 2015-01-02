@@ -1,6 +1,45 @@
-<div class="page-header" data-ng-controller="HeaderController">
+<div class="header" data-ng-controller="HeaderController">
+    <div class="container">
+        <div class="logo"><a ui-sref="home" mean-token="'site-title'"><img src="/theme/assets/img/tmpl/logo.png" alt="webOsmotic"></a></div>
+
+        <div class="menu">
+            <div class="text-edit">
+                <div class="pull-right" data-ng-show="global.authenticated" mean-token-editable></div>
+                <div class="pull-right" data-ng-show="global.authenticated" mean-translate></div>
+            </div>
+            <ul class="nav" id="nav" data-ng-hide="global.authenticated">
+                <li><a ui-sref='auth.register'>Join</a></li>
+                <li class="divider-vertical"></li>
+                <li><a ui-sref='auth.login'>Log In</a>
+                </li>
+            </ul>
+            <ul class="nav" id="nav" data-ng-show="global.authenticated">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        {{global.user.name}} <b class="caret"></b>
+                    </a>
+                    <ul class="nav dropdown-menu">
+                        <li><a href="/logout">Log Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="menu">
+            <a class="toggleMenu" href="#"><img src="javascript:void(0)" alt="" /> </a>
+            <ul class="nav" id="nav">
+                <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{current: $uiRoute}">
+                    <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+<!--<div class="page-header" data-ng-controller="HeaderController">
   <div class="logo pull-left">
-    <a class="navbar-brand" ui-sref="home" mean-token="'site-title'">MEAN</a>
+    <a class="navbar-brand" ui-sref="home" mean-token="'site-title'">webOsmotic</a>
   </div>
 
   <div class="left pull-left">
@@ -35,4 +74,4 @@
       </li>
     </ul>
   </div>
-</div>
+</div>-->

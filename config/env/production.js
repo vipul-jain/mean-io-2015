@@ -1,8 +1,10 @@
 'use strict';
 
 module.exports = {
-  db: 'mongodb://' + (process.env.DB_PORT_27017_TCP_ADDR || 'localhost') + '/mean-prod',
+//  db: 'mongodb://' + (process.env.DB_PORT_27017_TCP_ADDR || 'localhost') + '/mean-prod',
+    db: 'mongodb://admin:admin@ds063870.mongolab.com:63870/mytestdb',
   /**
+   *
    * Database options that will be passed directly to mongoose.connect
    * Below are some examples.
    * See http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html#mongoclient-connect-options
